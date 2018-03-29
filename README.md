@@ -9,4 +9,4 @@ Recent publications have emphasized the need to address the issue of socially bi
 
 # References
 
-T. Bolukbasi, K.W. Chang, J. Zhou, V. Saligrama, and A. Kalai. “Man is to computer programmer as women is to homemaker? Debiasing Word Embeddings,” 2016. Advanced in Neural Information Processing Systems, pg 4349-4357.
+[1] T. Bolukbasi, K.W. Chang, J. Zhou, V. Saligrama, and A. Kalai. “Man is to computer programmer as women is to homemaker? Debiasing Word Embeddings,” 2016. Advanced in Neural Information Processing Systems, pg 4349-4357.
