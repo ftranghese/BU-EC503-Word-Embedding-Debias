@@ -21,6 +21,6 @@ N = size(W,1); % assumes words in w represented by each row
 %words in W
 cos_vec = W*g' ./ (diag(W*W')*(g*g'));
 
-d = (1/N) * (sum(abs(cos_vec)))^c;
+d = (1/N) * sum((abs(cos_vec)).^c);
 
 end
