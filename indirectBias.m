@@ -15,8 +15,9 @@ function [beta] = indirectBias(W,V,g)
 % beta - the vector of quanitifed indirect bias for all words in w (n x 1)
 
 % we first define the gender components of each word in sets W, V
-Wg = (W*g')*g; %vector of gender components of words in W
-Vg = (V*g')*g; %vector of gender components of words in V
+% assumes already normalized.
+Wg = (W*g').*g; %vector of gender components of words in W
+Vg = (V*g').*g; %vector of gender components of words in V
 
 % get components of words perpendicular to the gender direction
 Wt = W-Wg;
