@@ -26,5 +26,6 @@ for j = 1:size(wordVectors,1)
     normalised_wordVecs(j,:) = vector./norm(vector);
 end
 
+g = getGenderDirection(normalised_wordVecs,wordIndex);
 
  
