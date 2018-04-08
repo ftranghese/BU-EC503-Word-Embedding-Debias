@@ -15,5 +15,5 @@ fmt = ['%s ' repmat('%f ',1,300)];
 words = textscan(fileID,fmt);
 
 wordVector = cell2mat(words(:,2:end));
-words = cell2mat(words(1,:));
+words = words(:,1);
 end
