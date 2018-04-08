@@ -13,6 +13,7 @@ function [words,wordVector] = getData(filename)
 fileID = fopen(filename);
 fmt = ['%s ' repmat('%f ',1,300)];
 words = textscan(fileID,fmt);
+fclose('all');
 
 wordVector = cell2mat(words(:,2:end));
 words = words(:,1);
