@@ -7,25 +7,28 @@
 %}
 
 % CODE GOES HERE
-num_dataFiles = 1;
-words = [];
-wordVectors = [];
-% Loading dataset from each matfile into different lists containing words and wordvectors
-for i = 1:num_dataFiles
-    load(sprintf('model_part_%02d.mat',i));
-    words = [words, words_part];
-    wordVectors = [wordVectors; wordvecs_part];
+fileID = fopen('w2v_gnews_small.txt');
+fmt = ['%s ' repmat('%f ',1,300)];
+words = textscan(fileID,fmt);
+fclose('all');
+wordvecs = cell2mat(words(:,2:end));
+words = words(:,1);
+words_part = {};
+for p = 1:length(words{:})
+    words_part{p,1} = words{1,1}{p,1};
 end
-
-wordIndex = containers.Map(words, (1:length(words)));
+wordIndex = containers.Map(words_part, (1:length(words_part)));
 % Normalising the word vectors
-normalised_wordVecs = zeroes(size(wordVectors,1),1);
-for j = 1:size(wordVectors,1)
-    vector = wordVectors(j,:);
+norms = zeroes(size(wordvecs,1),1);
+for j = 1:size(wordvecs,1)
+    vector = wordvecs(j,:);
     % Normalising
-    normalised_wordVecs(j,:) = vector./norm(vector);
+    norms(j,:) = vector./norm(vector);
 end
 
-g = getGenderDirection(normalised_wordVecs,wordIndex);
+g = getGenderDirection(norms,wordIndex);
 
+% Getting the normalised vectors of the occupation words list
+[occupationWords, occupationVectors] = getVectorsOfType('occupations.json',norms,wordIndex,words_part)
+% Getting the normalised vectors of the gender specific words list
  
