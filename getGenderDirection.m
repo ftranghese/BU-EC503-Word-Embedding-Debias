@@ -6,7 +6,7 @@
     Worked on by: Nidhi Tiwari (nidhit@bu.edu)
 %}
 
-function [g] = getGenderDirection(wordvecs_norm,word2Index,X)
+function [g] = getGenderDirection(wordvecs_norm,word2Index)
 % INPUTS
 % W - co-occurance matrix of all Word Emebeddings in set (N x d)
 % X - co-occurance matrix of all defined by gendered terms
