@@ -16,7 +16,7 @@ function [sim] = cosineSim(W,V)
 
 %find cosine similarity of all words = <w,g> / ||w||*||g|| where w is each
 %words in W
-sim = W*V' ./ (diag(W*W')*(diag(V*V')));
+sim = W*V' ./ (norm(W,2)*norm(V,2));
 
 
 end
