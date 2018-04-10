@@ -23,6 +23,6 @@ Vg = (V*g').*g; %vector of gender components of words in V
 Wt = W-Wg;
 Vt = V-Vg;
 
-beta = (W*V' - (Wt*Vt')./(sqrt(sum(diag(Wt*Wt')))*sqrt(sum(diag(Vt*Vt')))))./(W*V');
+beta = (W*V' - (Wt*Vt')./(norm(Wt,2)*norm(Vt,2)))./(W*V');
 
 end
