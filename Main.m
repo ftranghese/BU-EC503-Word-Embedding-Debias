@@ -19,7 +19,7 @@ for p = 1:length(words{:})
 end
 wordIndex = containers.Map(words_part, (1:length(words_part)));
 % Normalising the word vectors
-norms = zeroes(size(wordvecs,1),1);
+norms = zeros(size(wordvecs,1),1);
 for j = 1:size(wordvecs,1)
     vector = wordvecs(j,:);
     % Normalising
