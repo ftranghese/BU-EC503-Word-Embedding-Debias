@@ -1,6 +1,9 @@
 function [hard_debiased] = hardDebias(filename, wordvecs_norm,word2Index,words_part)
 
-
+% Word Embeddings De-biasing
+% Function for Hard-Debiasing of word embeddings
+% Worked on by: Nidhi Tiwari
+    
 fname = 'equalize_wordpairs.json'; 
 fid = fopen(fname); 
 raw = fread(fid,inf); 
