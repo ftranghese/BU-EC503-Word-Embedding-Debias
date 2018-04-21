@@ -18,5 +18,4 @@ function [sim] = cosineSim(W,V)
 %words in W
 sim = W*V' ./ (norm(W,2)*norm(V,2));
 
-
 end
