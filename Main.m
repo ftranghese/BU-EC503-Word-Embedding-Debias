@@ -7,20 +7,19 @@
 %}
 
 % CODE GOES HERE
-% fileID = fopen('w2v_gnews_small.txt');
-% fmt = ['%s ' repmat('%f ',1,300)];
-% words = textscan(fileID,fmt);
-% fclose('all');
-% wordvecs = cell2mat(words(:,2:end));
-% words = words(:,1);
-[words,wordvecs] = getData('w2v_gnews_small.txt');
+fileID = fopen('w2v_gnews_small.txt');
+fmt = ['%s ' repmat('%f ',1,300)];
+words = textscan(fileID,fmt);
+fclose('all');
+wordvecs = cell2mat(words(:,2:end));
+words = words(:,1);
 words_part = {};
 for p = 1:length(words{:})
     words_part{p,1} = words{1,1}{p,1};
 end
 wordIndex = containers.Map(words_part, (1:length(words_part)));
 % Normalising the word vectors
-norms = zeros(size(wordvecs,1),size(wordvecs,2));
+norms = zeros(size(wordvecs,1),1);
 for j = 1:size(wordvecs,1)
     vector = wordvecs(j,:);
     % Normalising
@@ -30,9 +29,5 @@ end
 g = getGenderDirection(norms,wordIndex);
 
 % Getting the normalised vectors of the occupation words list
-[occupationWords, occupationVectors] = getVectorsOfType('occupations.json',norms,wordIndex,words_part);
+[occupationWords, occupationVectors] = getVectorsOfType('occupations.json',norms,wordIndex,words_part)
 % Getting the normalised vectors of the gender specific words list
-[genderspec, genderspecVectors] = getVectorsOfType('gender_specific.json',norms,wordIndex,words_part);
-%%
-
-W_soft = softDebias(norms,g,genderspecVectors);
