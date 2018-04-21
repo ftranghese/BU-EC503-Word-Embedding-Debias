@@ -30,5 +30,4 @@ g = getGenderDirection(norms,wordIndex);
 
 % Getting the normalised vectors of the occupation words list
 [occupationWords, occupationVectors] = getVectorsOfType('occupations.json',norms,wordIndex,words_part)
-% Getting the normalised vectors of the gender specific words list
  

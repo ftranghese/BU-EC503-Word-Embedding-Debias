@@ -19,7 +19,7 @@ N = size(W,1); % assumes words in w represented by each row
 
 %find cosine similarity of all words = <w,g> / ||w||*||g|| where w is each
 %words in W
-cos_vec = W*g' ./ (diag(W*W')*(g*g'));
+cos_vec = W*g' ./ (norm(W,2)*norm(g,2));
 
 d = (1/N) * sum((abs(cos_vec)).^c);
 

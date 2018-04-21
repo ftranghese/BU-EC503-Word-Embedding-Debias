@@ -28,4 +28,5 @@ for m = 1:length(arr)
         counter = counter + 1;
         occupationVectors(counter,:) = wordvecs_norm(word2Index(occupationWords{m,1}),:);
     end
+    
 end
