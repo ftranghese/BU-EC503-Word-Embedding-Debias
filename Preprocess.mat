@@ -1,0 +1,4 @@
+%% obtaining the 6000 words
+
+data = string(importdata('final_filtered.txt'));
+data = strip(data,'right','*');
